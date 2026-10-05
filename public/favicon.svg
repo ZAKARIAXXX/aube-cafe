@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="coffee" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B4A3A"/>
+      <stop offset="100%" style="stop-color:#4A3428"/>
+    </linearGradient>
+    <linearGradient id="steam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8D5C4;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#E8D5C4;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <!-- Cup body -->
+  <path d="M7 8 L7 22 C7 25 9 27 12 27 H20 C23 27 25 25 25 22 L25 8 Z" fill="url(#coffee)"/>
+  <!-- Cup inner (coffee) -->
+  <path d="M9 10 L9 21 C9 23 10 24.5 12 24.5 H20 C22 24.5 23 23 23 21 L23 10 Z" fill="#3D2817"/>
+  <!-- Handle -->
+  <path d="M25 10 Q30 10 30 16 Q30 22 25 22" stroke="url(#coffee)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Steam lines -->
+  <path d="M12 8 Q11 4 12 2" stroke="url(#steam)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M16 8 Q16 3 16 1" stroke="url(#steam)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7" style="animation-delay: 0.2s"/>
+  <path d="M20 8 Q21 4 20 2" stroke="url(#steam)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7" style="animation-delay: 0.4s"/>
+  <!-- Aube dot -->
+  <circle cx="26" cy="6" r="3" fill="#C47A5C"/>
+</svg>
