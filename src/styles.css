@@ -1,0 +1,180 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-contrast: var(--hero-contrast);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-dark-foreground: var(--surface-dark-foreground);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --font-display: "Italiana", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --tracking-site: 0.12em;
+  --tracking-label: 0.18em;
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.976 0.009 78);
+  --foreground: oklch(0.244 0.025 57);
+  --card: oklch(0.995 0.004 78);
+  --card-foreground: oklch(0.244 0.025 57);
+  --popover: oklch(0.995 0.004 78);
+  --popover-foreground: oklch(0.244 0.025 57);
+  --primary: oklch(0.643 0.105 42);
+  --primary-foreground: oklch(0.985 0.006 76);
+  --secondary: oklch(0.945 0.02 77);
+  --secondary-foreground: oklch(0.244 0.025 57);
+  --muted: oklch(0.942 0.012 74);
+  --muted-foreground: oklch(0.49 0.025 57);
+  --accent: oklch(0.903 0.04 51);
+  --accent-foreground: oklch(0.244 0.025 57);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0.006 76);
+  --border: oklch(0.83 0.022 68);
+  --input: oklch(0.83 0.022 68);
+  --ring: oklch(0.643 0.105 42);
+  --hero-foreground: oklch(0.985 0.006 76);
+  --hero-contrast: oklch(0.244 0.025 57);
+  --surface-dark: oklch(0.225 0.025 54);
+  --surface-dark-foreground: oklch(0.965 0.012 76);
+  --whatsapp: oklch(0.66 0.16 148);
+  --whatsapp-foreground: oklch(0.99 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 45%, transparent);
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@utility section-kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+@utility hero-scrim {
+  background:
+    linear-gradient(90deg, color-mix(in oklab, var(--hero-contrast) 76%, transparent) 0%, color-mix(in oklab, var(--hero-contrast) 30%, transparent) 60%, transparent 100%),
+    linear-gradient(0deg, color-mix(in oklab, var(--hero-contrast) 60%, transparent) 0%, transparent 55%);
+}
+
+@utility reveal-up {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 800ms ease, transform 800ms ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-hero-in {
+  animation: hero-in 1000ms 180ms both ease-out;
+}
+
+@utility marquee-shell {
+  overflow: hidden;
+}
+
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-scrim {
+    background:
+      linear-gradient(0deg, color-mix(in oklab, var(--hero-contrast) 78%, transparent) 0%, color-mix(in oklab, var(--hero-contrast) 18%, transparent) 78%),
+      linear-gradient(90deg, color-mix(in oklab, var(--hero-contrast) 40%, transparent), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track,
+  .animate-hero-in {
+    animation: none;
+  }
+
+  .reveal-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

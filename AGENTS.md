@@ -1,0 +1,1 @@
+- Keep the public experience as a single anchored page because the requested café template is designed around smooth in-page browsing.
